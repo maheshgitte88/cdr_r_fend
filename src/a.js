@@ -287,10 +287,10 @@ function App() {
               <thead>
                 <tr>
                   <th style={{cursor:"pointer", fontSize:"15px"}} onClick={() => sortColumnUser(0)}><i className="fa-solid fa-users pe-2"></i> Users <i className="fa-solid fa-arrow-down-a-z ps-2"></i></th>
-                  <th style={{cursor:"pointer", fontSize:"15px", backgroundColor:"#b5ffc4"}} onClick={() => sortColumn(1)}><i className="fa-solid fa-phone-volume pe-2"></i>Calls <i className="fa-solid fa-arrow-down-1-9 ps-2"></i></th>
+                  <th style={{cursor:"pointer", fontSize:"15px"}} onClick={() => sortColumn(1)}><i className="fa-solid fa-phone-volume pe-2"></i>Calls <i className="fa-solid fa-arrow-down-1-9 ps-2"></i></th>
                   <th style={{cursor:"pointer", fontSize:"15px"}} onClick={() => sortColumn(2)}>Sum Talk Duration</th>
-                  <th style={{cursor:"pointer", fontSize:"15px",  backgroundColor: "#ffb5b9"}} onClick={() => sortColumn(3)}><i className="fa-solid fa-phone-slash pe-2"></i>Calls <i className="fa-solid fa-arrow-down-1-9"></i></th>
-                  <th style={{fontSize:"15px"}}>SUM Talk Duration</th>
+                  <th style={{cursor:"pointer", fontSize:"15px"}} onClick={() => sortColumn(3)}><i className="fa-solid fa-phone-slash pe-2"></i>Calls <i className="fa-solid fa-arrow-down-1-9"></i></th>
+                  <th style={{fontSize:"15px", background:"#b2bff7"}}>SUM Talk Duration</th>
                   <th style={{fontSize:"15px"}}>Total Count Of Call Status</th>
                   <th style={{fontSize:"15px"}}>Total Sum Of Talk Duration</th>
                 </tr>
@@ -324,8 +324,7 @@ function App() {
 
                 {grandTotal.length > 1 && grandTotal.slice(0, 1).map(() => (
                   <tr>
-                    {/* <td><strong>{grandTotal[1].callStatus || null} Grand Total</strong></td> */}
-                    <td><strong> Grand Total</strong></td>
+                    <td><strong>{grandTotal[1].callStatus || null}</strong></td>
                     <td><strong>{grandTotal[1].callStatusCount || null}</strong></td>
                     <td><strong>{grandTotal[1].talkDurationSum || null}</strong></td>
                     <td><strong>{grandTotalofDis || null}</strong></td>
@@ -376,18 +375,18 @@ function App() {
 
           </div>
            
-            <table className='table table-bordered' data-sorted-by="">
+            <table className='table table-bordered'>
               <thead>
                 <tr>
-                  <th style={{cursor:"pointer", fontSize:"15px"}} onClick={() => sortColumnUser(0)}><i className="fa-solid fa-users pe-2"></i> Users <i className="fa-solid fa-arrow-down-a-z ps-2"></i></th>
-                  <th style={{cursor:"pointer", fontSize:"15px"}} onClick={() => sortColumn(1)}><i className="fa-solid fa-phone-volume pe-2"></i>Calls <i className="fa-solid fa-arrow-down-1-9 ps-2"></i></th>
-                  <th style={{cursor:"pointer", fontSize:"15px"}} onClick={() => sortColumn(2)}>Sum Talk Duration</th>
-                  <th style={{cursor:"pointer", fontSize:"15px"}} onClick={() => sortColumn(3)}>Average Talk Duration</th>
-                  <th style={{cursor:"pointer", fontSize:"15px"}} onClick={() => sortColumn(4)}><i className="fa-solid fa-phone-slash pe-2"></i>Calls <i className="fa-solid fa-arrow-down-1-9"></i></th>
+                  <th>User Name</th>
+                  <th>Connected Calls</th>
+                  <th>Total Talk Duration</th>
+                  <th>Average Talk Duration</th>
+                  <th>Disconnected Calls</th>
                 </tr>
               </thead>
               <tbody>
-            
+                {/* <tbody> */}
                 {filteredUserData.length > 0 ? (
                   filteredUserData.map((user, index) => (
                     <tr key={index}>
@@ -411,8 +410,7 @@ function App() {
                 )}
                 {grandTotal.length > 1 && grandTotal.slice(0, 1).map(() => (
                   <tr>
-                    {/* <td><strong>{grandTotal[1].callStatus || null}</strong></td> */}
-                    <td><strong> Grand Total</strong></td>
+                    <td><strong>{grandTotal[1].callStatus || null}</strong></td>
                     <td><strong>{grandTotal[1].callStatusCount}</strong></td>
                     <td><strong>{grandTotal[1].talkDurationSum}</strong></td>
                     <td><strong>{grandTotal[1].talkDurationAvg}</strong></td>
